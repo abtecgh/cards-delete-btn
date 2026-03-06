@@ -1,0 +1,15 @@
+[
+  {
+    "namespace": "cardsDelete",
+    "description": "Injects delete button into Thunderbird Cards View",
+    "functions": [
+      {
+        "name": "inject",
+        "type": "function",
+        "description": "Injects delete button script into all mail:3pane windows",
+        "async": true,
+        "parameters": []
+      }
+    ]
+  }
+]

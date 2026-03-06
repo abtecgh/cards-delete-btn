@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "name": "Cards View Delete Button",
+  "version": "1.0.0",
+  "description": "Adds a trash/delete button to each message card in Thunderbird's Cards View.",
+  "author": "Aleš Agič",
+  "homepage_url": "https://github.com/YOUR_USERNAME/cards-delete-btn",
+  "applications": {
+    "gecko": {
+      "id": "cards-delete-btn@abtec.si",
+      "strict_min_version": "115.0"
+    }
+  },
+  "experiment_apis": {
+    "cardsDelete": {
+      "schema": "api/schema.json",
+      "parent": {
+        "scopes": ["addon_parent"],
+        "script": "api/parent.js",
+        "paths": [["cardsDelete"]]
+      }
+    }
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "icons": {
+    "48": "icon48.png",
+    "96": "icon96.png"
+  }
+}
