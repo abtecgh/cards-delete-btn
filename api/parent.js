@@ -47,9 +47,11 @@ this.cardsDelete = class extends ExtensionCommon.ExtensionAPI {
         if (rowIndex < 0) return;
         const view = innerWin.gDBView;
         if (!view) { log("no gDBView"); return; }
-        view.selection.select(rowIndex);
-        const topWin = innerWin.browsingContext?.top?.window || innerWin;
-        if (typeof topWin.goDoCommand === "function") topWin.goDoCommand("cmd_delete");
+        const msgHdr = view.getMsgHdrAt(rowIndex);
+        if (!msgHdr) { log("no msgHdr"); return; }
+        // Use deleteMessages directly - does NOT change selection or open next message
+        msgHdr.folder.deleteMessages([msgHdr], null, false, false, null, true);
+        log("deleted: " + msgHdr.subject);
       } catch(e) { log("delete err: " + e); }
     }
 
