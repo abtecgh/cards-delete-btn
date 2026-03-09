@@ -1,12 +1,14 @@
 "use strict";
 
+/**
+ * Cards View Delete Button — background script
+ *
+ * Calls the Experiment API to inject the delete button into all open and
+ * future mail:3pane windows.
+ */
+
 async function init() {
-  try {
-    await browser.cardsDelete.inject();
-    console.log("[CardsDelete] Extension initialized.");
-  } catch (e) {
-    console.error("[CardsDelete] Init failed:", e);
-  }
+  await browser.cardsDelete.inject();
 }
 
 browser.runtime.onStartup.addListener(init);
